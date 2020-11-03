@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="Assets/style.css">
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-light bg-dark">
+        <span class="navbar-brand mb-0 h1"><a href="./Assets/highScore.html" class="text-light">Highscores</a></span>
+        <span class="navbar mb-0 h2 text-light">Code Quiz!</span>
+        <span id="timer" class="navbar-text text-light"></span>
+
+    </nav>
+
+    <div class="container my-5 jumbotron">
+        <div id="question" class=" text-center h2">Click Start to begin!</div>
+        <div class="container h5 text-center">
+            <div id="startquiz" class="row">
+                <div class="container col-8 ">You will have 90 seconds to complete the quiz! </br>For every wrong answer, you will be penalized 10 seconds!
+                    <div class="col-12 text-center p-3">Good luck!!!</div>
+                    <div id="startBtn" class="col btn btn-hover btn-primary col-4">Start!</div>
+                </div>
+            </div>
+            <ol id="choice" class="ol">
+                <li id="choice1" class="list-group-item list-group-item-action"></li>
+                <li id="choice2" class="list-group-item list-group-item-action"></li>
+                <li id="choice3" class="list-group-item list-group-item-action"></li>
+            </ol>
+        </div>
+        <div id="notification" class="div h6">
+
+        </div>
+
+    </div>
+
+
+
+
+    <script src="Assets/javascript.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+</body>
+
+</html>

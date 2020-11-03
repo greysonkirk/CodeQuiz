@@ -1,0 +1,22 @@
+body {
+    background-image: url("https://www.dreamtemplate.com/dreamcodes/bg_images/color/c4.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+ol {
+    visibility: hidden;
+    margin: auto;
+    list-style-position: inside;
+}
+
+li {
+    margin: auto;
+    padding: 5px;
+    width: 20%;
+}
+
+.hide {
+    display: none;
+}
