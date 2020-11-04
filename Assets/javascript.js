@@ -119,8 +119,9 @@ function quizBuild(event) {
 
 
     // let c = questions.choices.length
-    document.querySelector("#question").textContent = questions[questionNum].question;
-
+    if (questionNum === questions.length) {
+        finishQuiz()
+    } else { document.querySelector("#question").textContent = questions[questionNum].question; }
     for (let i = 0; i < questions[questionNum].choices.length; i++) {
         const choice = questions[questionNum].choices[i];
 
@@ -167,8 +168,10 @@ function quizBuild(event) {
 
 function checkQuestionNum() {
     if (questionNum === questions.length) {
+        console.log(questionNum);
+        console.log(questions.length)
         finishQuiz()
-        return;
+
     } else {
         choices.innerText = ""
         questionNum++;
