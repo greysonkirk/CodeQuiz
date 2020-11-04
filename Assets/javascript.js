@@ -1,4 +1,4 @@
-let seconds = 3;
+let seconds = 90;
 let questionNum = 0
 let notify = document.querySelector("#notification");
 let olEl = document.querySelector(".ol");
@@ -31,7 +31,7 @@ let questions = [{
             'B:  <style src="mystyle.css">',
             'C:  <stylesheet>mystyle.css</stylesheet>'
         ],
-        correctAnswer: 'B:  <style src="mystyle.css">'
+        correctAnswer: 'A:  <link rel="stylesheet" type="text/css" href="mystyle.css">'
     }, {
         question: "Inside which HTML element do we put the JavaScript?",
         choices: [
@@ -134,12 +134,25 @@ function quizBuild(event) {
 
 
             if (li.textContent === questions[questionNum].correctAnswer) {
-                console.log(li.textContent)
-                console.log(questions[questionNum].correctAnswer)
+                notify.style.visibility = "visible";
+                notify.textContent = "Correct!"
+                notify.className = "alert alert-success"
+                setTimeout(function() {
+                    notify.textContent = ""
+                    notify.className = ""
+                }, 1000);
+
                 userScore + 10
 
 
             } else {
+
+                notify.textContent = "Incorrect!"
+                notify.className = "alert alert-danger"
+                setTimeout(function() {
+                    notify.textContent = ""
+                    notify.className = ""
+                }, 1000);
 
                 seconds = seconds - 15;
             }

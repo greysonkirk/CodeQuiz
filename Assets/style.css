@@ -24,3 +24,7 @@ li {
 .show {
     display: inline;
 }
+
+#notification {
+    position: fixed;
+}
