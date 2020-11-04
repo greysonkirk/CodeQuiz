@@ -1,7 +1,7 @@
 let seconds = 90;
 let questionNum = 0
 let notify = document.querySelector("#notification");
-let ulEl = document.querySelector(".ol");
+let olEl = document.querySelector(".ol");
 let userScore = 0
 let questions = [{
         question: "Which of the following is not an HTML element?",
@@ -112,23 +112,22 @@ startquiz.addEventListener("click", function(event) {
 
 
 function quizBuild(event) {
-    console.log(questionNum)
-    console.log(questions[questionNum].choices.length)
+
 
     // let c = questions.choices.length
     document.querySelector("#question").textContent = questions[questionNum].question;
 
     for (let i = 0; i < questions[questionNum].choices.length; i++) {
         const choice = questions[questionNum].choices[i];
-        console.log(choice + "sdfgdsfg")
 
         let li = document.createElement("li");
         li.textContent = choice;
         li.setAttribute("data-id", i);
         li.className = "list-group-item list-group-item-action";
-        ulEl.append(li)
+        olEl.append(li)
+            //checking answer, adding points or subtracting seconds
         li.addEventListener("click", function(event) {
-            event.stopPropagation();
+
 
             if (li.innerText === questions[questionNum].answer) {
                 score + 10
@@ -140,14 +139,15 @@ function quizBuild(event) {
 
 
 
-            if (questionNum === questions.length) {
+            if (questionNum === questions.length - 1) {
+                console.log("last one")
                 return;
             } else {
-                li.
+                choices.innerText = ""
                 questionNum++;
                 quizBuild();
             }
         });
-
     }
+
 };
