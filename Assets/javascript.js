@@ -1,7 +1,10 @@
-let seconds = 90;
+let seconds = 3;
 let questionNum = 0
 let notify = document.querySelector("#notification");
 let olEl = document.querySelector(".ol");
+let questEL = document.querySelector("#question");
+let startBtn = document.querySelector("#startBtn");
+let instructEL = document.querySelector("#instruct");
 let userScore = 0
 let questions = [{
         question: "Which of the following is not an HTML element?",
@@ -103,6 +106,7 @@ startquiz.addEventListener("click", function(event) {
     setInterval(function() {
         if (seconds <= 0) {
             clearInterval(seconds);
+            finishQuiz();
         }
         document.querySelector("#timer").textContent = "Seconds Left: " + seconds--;
 
@@ -129,25 +133,46 @@ function quizBuild(event) {
         li.addEventListener("click", function(event) {
 
 
-            if (li.innerText === questions[questionNum].answer) {
-                score + 10
+            if (li.textContent === questions[questionNum].correctAnswer) {
+                console.log(li.textContent)
+                console.log(questions[questionNum].correctAnswer)
+                userScore + 10
+
 
             } else {
 
                 seconds = seconds - 15;
             }
 
+            checkQuestionNum()
 
 
-            if (questionNum === questions.length - 1) {
-                console.log("last one")
-                return;
-            } else {
-                choices.innerText = ""
-                questionNum++;
-                quizBuild();
-            }
         });
     }
 
 };
+
+function checkQuestionNum() {
+    if (questionNum === questions.length) {
+        finishQuiz()
+        return;
+    } else {
+        choices.innerText = ""
+        questionNum++;
+        quizBuild();
+    }
+}
+
+
+//times up or user finished. Display score and go to highscores page 
+function finishQuiz() {
+    let finish = document.querySelector("#startquiz");
+    choices.innerText = ""
+    questEL.textContent = "The quiz is over!";
+    instructEL.textContent = "Click here to log score!";
+    finish.setAttribute("class", "show");
+
+    instructEL.addEventListener("click", function() {
+        window.location.href = "./Assets/highScore.html";
+    })
+}
