@@ -118,13 +118,10 @@ startquiz.addEventListener("click", function(event) {
 function quizBuild(event) {
 
 
-    // let c = questions.choices.length
-    if (questionNum === questions.length) {
-        finishQuiz()
-    } else { document.querySelector("#question").textContent = questions[questionNum].question; }
+    //setting question choices based off question index
+    document.querySelector("#question").textContent = questions[questionNum].question;
     for (let i = 0; i < questions[questionNum].choices.length; i++) {
         const choice = questions[questionNum].choices[i];
-
         let li = document.createElement("li");
         li.textContent = choice;
         li.setAttribute("data-id", i);
@@ -133,7 +130,8 @@ function quizBuild(event) {
             //checking answer, adding points or subtracting seconds
         li.addEventListener("click", function(event) {
 
-
+            //checking answers and display correct or incorrect 
+            //adding to score or taking time away depending on answer
             if (li.textContent === questions[questionNum].correctAnswer) {
                 notify.style.visibility = "visible";
                 notify.textContent = "Correct!"
@@ -143,7 +141,7 @@ function quizBuild(event) {
                     notify.className = ""
                 }, 1000);
 
-                userScore + 10
+                userScore = userScore + 10
 
 
             } else {
@@ -167,7 +165,7 @@ function quizBuild(event) {
 };
 
 function checkQuestionNum() {
-    if (questionNum === questions.length) {
+    if (questionNum === questions.length - 1) {
         console.log(questionNum);
         console.log(questions.length)
         finishQuiz()
@@ -184,7 +182,7 @@ function checkQuestionNum() {
 function finishQuiz() {
     let finish = document.querySelector("#startquiz");
     choices.innerText = ""
-    questEL.textContent = "The quiz is over!";
+    questEL.textContent = "The quiz is over! You scored " + userScore + " points!";
     instructEL.textContent = "Click here to log score!";
     finish.setAttribute("class", "show");
 
