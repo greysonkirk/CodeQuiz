@@ -1,3 +1,5 @@
+//all the questions user has to answer
+
 let questions = [{
         question: "Which of the following is not an HTML element?",
         choices: [

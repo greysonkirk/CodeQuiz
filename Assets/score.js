@@ -4,14 +4,12 @@ let initial = document.querySelector("#initials");
 let scoreArray = [{
 
 }];
-let userID = 0
+
+//pulling score from local storage
 let scoreScore = localStorage.getItem('score')
-
+    //setting the text with score
 usersScoreEl.textContent = "You scored " + scoreScore + " points!"
-
-let scoreList = localStorage.getItem("score")
-
-
+    //getting users initials and adding it to a ol element. 
 $("#subBtn").on("click", function addScoreToLi() {
 
     var initials = initial.value;
@@ -21,7 +19,6 @@ $("#subBtn").on("click", function addScoreToLi() {
     scoreArray.push({ score: scoreScore })
     scoreBoard.append(liSc);
     liSc.textContent = initials + " " + scoreScore;
-
     $("#subBtn").hide();
 
 

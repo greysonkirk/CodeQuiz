@@ -17,9 +17,9 @@ startquiz.addEventListener("click", function(event) {
     quizBuild();
     document.querySelector("ol").style.visibility = "visible";
     //timer section. starting with 90 seconds
-    setInterval(function() {
+    let timer = setInterval(function() {
         if (seconds <= 0) {
-            clearInterval(seconds);
+            clearInterval(timer);
             finishQuiz();
         }
         document.querySelector("#timer").textContent = "Seconds Left: " + seconds--;
