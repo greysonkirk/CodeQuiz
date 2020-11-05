@@ -98,7 +98,7 @@ function finishQuiz() {
     questEL.textContent = "The quiz is over! You scored " + userScore + " points!";
     instructEL.textContent = "Click here to log score!";
     finish.setAttribute("class", "show");
-    console.log(userScore)
+    clearInterval(timer);
     instructEL.addEventListener("click", function(event) {
         localStorage.setItem("score", userScore)
         window.location.href = "./Assets/highScore.html";
