@@ -6,7 +6,6 @@ body {
 }
 
 ol {
-    visibility: hidden;
     margin: auto;
     list-style-position: inside;
 }
